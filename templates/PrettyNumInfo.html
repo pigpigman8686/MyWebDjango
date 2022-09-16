@@ -1,0 +1,57 @@
+{% extends 'Navigation.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        <title>靓号管理</title>
+    {% endblock %}
+</head>
+<body>
+    {% block contents %}
+        <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+            靓号管理
+        </div>
+        <div class="panel-body">
+            <div>
+                <a class="btn btn-success" href="/add_pretty_num">
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                    新建靓号
+                </a>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <table class="table">
+            <tr>
+                <th>id</th>
+                <th>号码</th>
+                <th>价格</th>
+                <th>级别</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            {% for item in pretty_num_list %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.mobile }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.get_level_display }}</td>
+                    <td>{{ item.get_status_display }}</td>
+                    <td>
+                        <div>
+                            <a class="btn btn-success btn-xs" href="/edit_pretty_num/{{ item.id }}/">编辑</a>
+
+                            <a class="btn btn-danger btn-xs" href="/delete_pretty_num/?id={{ item.id }}">删除</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endblock %}
+</body>
+</html>

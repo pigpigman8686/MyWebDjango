@@ -29,6 +29,9 @@ urlpatterns = [
     path('add_depart/', views.add_depart),
     path('edit_depart/<int:nid>/', views.edit_depart),
     path('delete_depart/', views.delete_depart),
+    # 靓号管理
+    path('pretty_num_info/', views.pretty_num_info),
+    path('add_pretty_num/', views.add_pretty_num),
     # 测试接口
     path('test/', views.test)
 ]
