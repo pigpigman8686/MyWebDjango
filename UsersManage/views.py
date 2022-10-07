@@ -118,6 +118,7 @@ class PrettyNumModelForm(forms.ModelForm):
                     # RegexValidator(r'^1[3-9]\d{9}', "手机号格式错误")  # 可添加多个正则表达式
                     ]
     )
+
     class Meta:
         model = models.PrettyNum
         fields = ['mobile', 'price', 'level', 'status']  # '__all__'
